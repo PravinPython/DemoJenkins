@@ -13,9 +13,13 @@ pipeline {
       }
     }
 
-    stage('Docker Bulid') {
+    stage('DockerHub Login') {
+      environment {
+        DOCKERHUB_USER = 'praviningle'
+        DOCKERHUB_PASSWORD = 'Coditation@1991'
+      }
       steps {
-        sh 'docker build .'
+        sh 'docker login -u $DOCKERHUB_USER -P $DOCKERHUB_PASSWORD'
       }
     }
 
