@@ -14,16 +14,6 @@ pipeline {
     }
 
     stage('Docker Bulid') {
-      agent {
-        node {
-          label 'Environment'
-        }
-
-      }
-      environment {
-        DOCKERHUB_USER = 'praviningle9767@gmail.com'
-        DOCKERHUB_PASSWORD = 'Coditation@1991'
-      }
       steps {
         sh 'docker build .'
       }
