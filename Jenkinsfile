@@ -13,9 +13,19 @@ pipeline {
       }
     }
 
-    stage('Build') {
+    stage('DockerHub Login') {
+      agent {
+        node {
+          label 'Environment'
+        }
+
+      }
+      environment {
+        DOCKERHUB_USER = 'praviningle9767@gmail.com'
+        DOCKERHUB_PASSWORD = 'Coditation@1991'
+      }
       steps {
-        sh 'docker build -f DemoJenkins/Dockerfile .'
+        sh 'docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD'
       }
     }
 
