@@ -29,5 +29,11 @@ pipeline {
       }
     }
 
+    stage('Push') {
+      steps {
+        sh 'docker push praviningle/jenkins1-demo:latest'
+      }
+    }
+
   }
 }
